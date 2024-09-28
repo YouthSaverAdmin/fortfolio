@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #633b69;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* For dropdown positioning */
+}
+
+.hamburger {
+    font-size: 32px; /* Bigger hamburger icon */
+    cursor: pointer;
+    display: none; /* Hidden by default */
+    transition: transform 0.3s; /* Smooth transition for animations */
+}
+
+/* Navigation options */
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Show as a row on larger screens */
+    margin: 0; /* No margin */
+}
+
+.navbar ul li {
+    margin: 0 15px; /* Increase spacing between items */
+    position: relative; /* For hover effects */
+}
+
+.navbar ul li:hover {
+    background: rgba(255, 204, 0, 0.3); /* Lighter hover background */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 20px 25px; /* Bigger clickable area */
+    font-size: 18px; /* Bigger text */
+    display: block; /* Full-width links */
+    transition: color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+/* Change link color on hover */
+.navbar ul li a:hover {
+    color: #ffcc00; /* Change text color on hover */
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+/* Styles for Mobile Devices */
+@media (max-width: 600px) {
+    .hamburger {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    .navbar ul {
+        display: none; /* Hide menu initially on mobile */
+        flex-direction: column; /* Stack items vertically */
+        position: absolute; /* Position it below the header */
+        top: 60px; /* Adjust based on header height */
+        left: 0;
+        width: 100%; /* Full width */
+        background: #4a2c54; /* Background for mobile menu */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow for depth */
+        z-index: 1000; /* Ensure it's on top */
+        animation: slideDown 0.3s ease forwards; /* Animation effect */
+    }
+
+    .navbar ul.show {
+        display: flex; /* Show menu when toggled */
+        animation: slideDown 0.3s ease forwards; /* Animation effect */
+    }
+}
+
+/* Animation for dropdown menu */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px); /* Start slightly above */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Move to original position */
+    }
+}
